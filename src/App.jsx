@@ -6,7 +6,7 @@ import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import { useNavigate, Routes, Route } from 'react-router-dom'
-import Home from './pages/home'
+import Home from './pages/Home.jsx'
 import Index from'./pages/Index'
 import Navbar from './components/barraNavegacion.jsx'
 function App() {
