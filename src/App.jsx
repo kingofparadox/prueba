@@ -4,15 +4,18 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import { useNavigate, Routes, Route } from 'react-router-dom'
 import Home from './pages/home'
 import Index from'./pages/Index'
+import Navbar from './components/barraNavegacion.jsx'
 function App() {
 
   const navigate = useNavigate()
   return (
     <>
-  
+    <Navbar/>
+
     <Routes>
         <Route index element ={<Index />}/>
         <Route path="/home" element={<Home />} />
