@@ -10,12 +10,13 @@ import Registro from './pages/Registro.jsx'
 import Login from './pages/Login.jsx'
 import Contacto from './pages/Contacto.jsx'
 import Blog from './pages/Blog.jsx'
-import 
+import './index.css'
+ 
 
 function App() {
   const estatusGeneral = {
-    backgroundColor: '#411a75',
-    color: '#f4f2f7',
+    backgroundColor: '#ffffffff',
+    color: '#ffffffff',
     minHeight: '100vh',
     display: 'flex',
     flexDirection: 'column',
@@ -35,6 +36,7 @@ function App() {
           <Route path= "/Contacto" element ={<Contacto/>}/>
           <Route path="*" element={<Index />} />
         </Routes>
+        <h2>lo que se te de la gana</h2>
       </main>
       <Footer />
     </div>

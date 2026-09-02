@@ -1,3 +1,5 @@
+import '../index.css'
+
 function Blog() {
     
     return (
@@ -6,12 +8,12 @@ function Blog() {
                 <div className="col-12 col-md-10 col-lg-8">
                     
                     {/* Contenedor principal estilizado */}
-                    <div className="card text-light shadow-lg border-secondary p-4 p-md-5" style={{ backgroundColor: '#2a1b3d' }}>
+                    <div className="card text-light shadow-lg border-secondary p-4 p-md-5" style={{ backgroundColor: '#86997eff' }}>
                         
-                        <h1 className="fw-bold text-white mb-3 text-center display-6">
+                        <h1 >
                             Blog & Comunidad AnimeWord
                         </h1>
-                        <p className="text-white-50 text-center mb-4">
+                        <p>
                             Conoce las experiencias de nuestros coleccionistas y resuelve tus dudas principales en un solo lugar.
                         </p>
 
@@ -27,7 +29,7 @@ function Blog() {
 
                         {/* SECCIÓN 1: Casos de Éxito */}
                         <section id="casos-exito" className="mb-5 pt-3">
-                            <h3 className="text-white fw-bold border-bottom border-secondary pb-2 mb-4">
+                            <h3>
                                 🌟 Casos de Éxito: Historias de nuestros Coleccionistas
                             </h3>
 
@@ -50,7 +52,7 @@ function Blog() {
 
                         {/* SECCIÓN 2: Preguntas Frecuentes (FAQ) */}
                         <section id="preguntas-frecuentes" className="pt-3">
-                            <h3 className="text-white fw-bold border-bottom border-secondary pb-2 mb-4">
+                            <h3>
                                 ❓ Preguntas Frecuentes
                             </h3>
 
