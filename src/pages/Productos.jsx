@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom'
 import Card from '../components/cartas.jsx'
-import Hero from '../components/Hero.jsx'
+import Hero from '../components/Hero.jsx' // 1. Importas el Hero
 
-function Index() {
+function Producto() {
     const navigate = useNavigate()
     const productos = [
       { id: 1, nombre: 'Producto A', precio: 1000, imagen: '...', descripcion: 'Descripción A' },
@@ -12,13 +12,11 @@ function Index() {
     
     return(    
       <div className="container py-4">
-        <Hero />
         
-        <h3 id="productos" className="text-white mb-4 mt-4 pt-4">Nuestros Productos</h3>
         
         <Card productos={productos} />
       </div>
     )
 }
 
-export default Index
+export default Producto
