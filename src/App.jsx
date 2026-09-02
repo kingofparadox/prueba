@@ -4,10 +4,13 @@ import Navbar from './components/barraNavegacion.jsx'
 import Footer from './components/Footer.jsx'
 import { Routes, Route } from 'react-router-dom'
 import Index from './pages/Index.jsx'
-import Home from './pages/Home.jsx'
+import Nosotros from './pages/Nosotros.jsx'
 import Ventas from './pages/Productos.jsx'
 import Registro from './pages/Registro.jsx'
 import Login from './pages/Login.jsx'
+import Contacto from './pages/Contacto.jsx'
+import Blog from './pages/Blog.jsx'
+import 
 
 function App() {
   const estatusGeneral = {
@@ -24,10 +27,12 @@ function App() {
       <main className="container pt-4" style={{ flexGrow: 1 }}>
         <Routes>
           <Route index element={<Index />} />
-          <Route path="/home" element={<Home />} />
+          <Route path="/nosotros" element={<Nosotros/>} />
           <Route path="/Ventas" element={<Ventas />} />
           <Route path="/Registro" element={<Registro />} />
           <Route path= "/Login" element={<Login/>}/>
+          <Route path= "/Blog" element = {<Blog/>}/>
+          <Route path= "/Contacto" element ={<Contacto/>}/>
           <Route path="*" element={<Index />} />
         </Routes>
       </main>
