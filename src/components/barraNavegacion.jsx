@@ -45,11 +45,26 @@ function Navbar() {
                         Productos
                     </NavLink>
                 </li>
+                <li className="nav-item">
+                    <NavLink 
+                        className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'} 
+                        to="/Registro"
+                    >
+                        Registar
+                    </NavLink>
+                </li>
+                <li className="nav-item">
+                    <NavLink 
+                        className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'} 
+                        to="/Login"
+                    >
+                        Login
+                    </NavLink>
+                </li>
             </ul>
         </div>
     </div>
-    </nav>
-  )
+    </nav>)
 }
 
 export default Navbar

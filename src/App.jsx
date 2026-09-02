@@ -1,11 +1,13 @@
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import Navbar from './components/barraNavegacion.jsx'
 import Footer from './components/Footer.jsx'
 import { Routes, Route } from 'react-router-dom'
 import Index from './pages/Index.jsx'
 import Home from './pages/Home.jsx'
 import Ventas from './pages/Productos.jsx'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap/dist/js/bootstrap.bundle.min.js'
+import Registro from './pages/Registro.jsx'
+import Login from './pages/Login.jsx'
 
 function App() {
   const estatusGeneral = {
@@ -24,6 +26,8 @@ function App() {
           <Route index element={<Index />} />
           <Route path="/home" element={<Home />} />
           <Route path="/Ventas" element={<Ventas />} />
+          <Route path="/Registro" element={<Registro />} />
+          <Route path= "/Login" element={<Login/>}/>
           <Route path="*" element={<Index />} />
         </Routes>
       </main>

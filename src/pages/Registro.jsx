@@ -1,0 +1,186 @@
+import { useState } from 'react'
+
+function Registro() {
+    const [formData, setFormData] = useState({
+        nombre: '',
+        correo: '',
+        confirmarCorreo: '',
+        password: '',
+        confirmarPassword: ''
+    })
+
+    const [errors, setErrors] = useState({})
+    const [mensajeExito, setMensajeExito] = useState(false)
+
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        let nuevosErrores = {}
+
+        // 1. Validación de Nombre (Requerido, máx 100 caracteres)
+        if (!formData.nombre.trim()) {
+            nuevosErrores.nombre = 'El nombre es requerido.'
+        } else if (formData.nombre.length > 100) {
+            nuevosErrores.nombre = 'El nombre no puede superar los 100 caracteres.'
+        }
+
+        // 2. Validación de Correo (Requerido, máx 100 caracteres, dominios específicos)
+        if (!formData.correo.trim()) {
+            nuevosErrores.correo = 'El correo es requerido.'
+        } else if (formData.correo.length > 100) {
+            nuevosErrores.correo = 'El correo no puede superar los 100 caracteres.'
+        } else {
+            const dominiosValidos = ['@duoc.cl', '@profesor.duoc.cl', '@gmail.com']
+            const esValido = dominiosValidos.some(dominio => formData.correo.endsWith(dominio))
+            if (!esValido) {
+                nuevosErrores.correo = 'Solo se permiten correos @duoc.cl, @profesor.duoc.cl y @gmail.com.'
+            }
+        }
+
+        // 2.1 Validación de Confirmar Correo
+        if (!formData.confirmarCorreo.trim()) {
+            nuevosErrores.confirmarCorreo = 'Debe confirmar el correo electrónico.'
+        } else if (formData.correo !== formData.confirmarCorreo) {
+            nuevosErrores.confirmarCorreo = 'Los correos electrónicos no coinciden.'
+        }
+
+        // 3. Validación de Contraseña (Requerida, entre 4 y 10 caracteres)
+        if (!formData.password) {
+            nuevosErrores.password = 'La contraseña es requerida.'
+        } else if (formData.password.length < 4 || formData.password.length > 10) {
+            nuevosErrores.password = 'La contraseña debe tener entre 4 y 10 caracteres.'
+        }   
+
+        // 3.1 Validación de Confirmar Contraseña
+        if (!formData.confirmarPassword) {
+            nuevosErrores.confirmarPassword = 'Debe confirmar la contraseña.'
+        } else if (formData.password !== formData.confirmarPassword) {
+            nuevosErrores.confirmarPassword = 'Las contraseñas no coinciden.'
+        }
+
+        setErrors(nuevosErrores)
+
+        // Si no hay errores, se procesa el envío
+        if (Object.keys(nuevosErrores).length === 0) {
+            setMensajeExito(true)
+
+            // ==========================================
+            // AQUÍ SE QUITAN LOS CAMPOS DE CONFIRMACIÓN
+            // Se extraen y se crea 'datosParaEnviar' solo con lo limpio
+            // ==========================================
+            const { confirmarCorreo, confirmarPassword, ...datosParaEnviar } = formData
+
+            console.log('JSON resultante listo para enviar (sin confirmaciones):', datosParaEnviar)
+        } else {
+            setMensajeExito(false)
+        }
+    }
+
+    return (
+        <div className="container py-5">
+            <div className="row justify-content-center">
+                <div className="col-12 col-md-8 col-lg-6">
+                    <div className="card text-light shadow-lg border-secondary p-4" style={{ backgroundColor: '#2a1b3d' }}>
+                        <h2 className="text-center fw-bold text-white mb-4">Registro de Usuario</h2>
+
+                        {mensajeExito && (
+                            <div className="alert alert-success text-center" role="alert">
+                                ¡Validación exitosa! Los datos cumplen con todas las reglas.
+                            </div>
+                        )}
+                        <form onSubmit={handleSubmit} noValidate>
+                            
+                            {/* Campo Nombre */}
+                            <div className="mb-3">
+                                <label className="form-label text-white-50">Nombre</label>
+                                <input 
+                                    type="text" 
+                                    name="nombre"
+                                    value={formData.nombre}
+                                    onChange={handleChange}
+                                    className={`form-control bg-dark text-light border-secondary ${errors.nombre ? 'is-invalid' : ''}`}
+                                    placeholder="Ingresa tu nombre (máx 100 caracteres)"
+                                />
+                                {errors.nombre && <div className="invalid-feedback">{errors.nombre}</div>}
+                            </div>
+
+                            {/* Campo Correo */}
+                            <div className="mb-3">
+                                <label className="form-label text-white-50">Correo Electrónico</label>
+                                <input 
+                                    type="email" 
+                                    name="correo"
+                                    value={formData.correo}
+                                    onChange={handleChange}
+                                    className={`form-control bg-dark text-light border-secondary ${errors.correo ? 'is-invalid' : ''}`}
+                                    placeholder="usuario@duoc.cl o @gmail.com"
+                                />
+                                {errors.correo && <div className="invalid-feedback">{errors.correo}</div>}
+                            </div>
+
+                            {/* Campo Confirmar Correo */}
+                            <div className="mb-3">
+                                <label className="form-label text-white-50">Confirmar Correo Electrónico</label>
+                                <input 
+                                    type="email" 
+                                    name="confirmarCorreo"
+                                    value={formData.confirmarCorreo}
+                                    onChange={handleChange}
+                                    className={`form-control bg-dark text-light border-secondary ${errors.confirmarCorreo ? 'is-invalid' : ''}`}
+                                    placeholder="Repite tu correo"
+                                />
+                                {errors.confirmarCorreo && <div className="invalid-feedback">{errors.confirmarCorreo}</div>}
+                            </div>
+
+                            {/* Campo Contraseña */}
+                            <div className="mb-3">
+                                <label className="form-label text-white-50">Contraseña (4 a 10 caracteres)</label>
+                                <input 
+                                    type="password" 
+                                    name="password"
+                                    value={formData.password}
+                                    onChange={handleChange}
+                                    className={`form-control bg-dark text-light border-secondary ${errors.password ? 'is-invalid' : ''}`}
+                                    placeholder="********"
+                                />
+                                {errors.password && <div className="invalid-feedback">{errors.password}</div>}
+                            </div>
+
+                            {/* Campo Confirmar Contraseña */}
+                            <div className="mb-4">
+                                <label className="form-label text-white-50">Confirmar Contraseña</label>
+                                <input 
+                                    type="password" 
+                                    name="confirmarPassword"
+                                    value={formData.confirmarPassword}
+                                    onChange={handleChange}
+                                    className={`form-control bg-dark text-light border-secondary ${errors.confirmarPassword ? 'is-invalid' : ''}`}
+                                    placeholder="Repite tu contraseña"
+                                />
+                                {errors.confirmarPassword && <div className="invalid-feedback">{errors.confirmarPassword}</div>}
+                            </div>
+
+                            {/* Botón */}
+                            <button 
+                                type="submit" 
+                                className="btn w-100 text-white fw-bold py-2" 
+                                style={{ backgroundColor: '#1a1025', border: '1px solid #4a3363' }}
+                            >
+                                Registrar
+                            </button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export default Registro
