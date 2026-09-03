@@ -5,20 +5,21 @@ function Nosotros() {
                 <div className="col-12 col-md-10 col-lg-8">
                     
                     {/* Tarjeta principal del Blog */}
-                    <div className="card text-light shadow-lg border-secondary p-4 p-md-5" style={{ backgroundColor: '#2a1b3d' }}>
+                    <div className="card text-light shadow-lg border-secondary p-4 p-md-5" style={{ backgroundColor: '#fce4ec' }}>
                         
                         {/* Cabecera del artículo */}
                         <span className="badge bg-dark border border-secondary text-white-50 align-self-start mb-3 px-3 py-2">
+                            
                             Nuestra Historia • 2026
                         </span>
                         
-                        <h1 className="fw-bold text-white mb-4 display-6">
+                        <h1>
                             Del estante a tus manos: El nuevo capítulo de AnimeWord
                         </h1>
 
                         {/* Imagen destacada simulada */}
                         <div className="p-5 rounded-3 text-center border border-secondary mb-4" 
-                             style={{ backgroundColor: '#1a1025', minHeight: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                             style={{ backgroundColor: '#fce4ec', minHeight: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                             <span className="text-white-50 fst-italic">[ Imagen: Evolución de Figuras y Mangas ]</span>
                         </div>
 

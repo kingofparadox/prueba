@@ -14,7 +14,7 @@ function Index() {
       <div className="container py-4">
         <Hero />
         
-        <h3 id="productos" className="text-white mb-4 mt-4 pt-4">Nuestros Productos</h3>
+        <h3 id="productos" className="mb-4 mt-4 pt-4">.⊹˖ᯓ★. ݁₊ Nuestros Productos</h3>
         
         <Card productos={productos} />
       </div>

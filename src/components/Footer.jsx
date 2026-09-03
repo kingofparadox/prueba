@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <footer className="text-light py-4 mt-5 border-top border-secondary" style={{ backgroundColor: '#1a1025' }}>
+    <footer className="text-light py-4 mt-5 border-top border-secondary" style={{ backgroundColor: '#fff9c4' }}>
       <div className="container text-center text-md-start">
         <div className="row align-items-center">
           
@@ -17,7 +17,7 @@ function Footer() {
             <p className="text-white-50 small mb-1">
               Contacto: <a href="mailto:contacto@miproyecto.com" className="text-light text-decoration-none">contacto@miproyecto.com</a>
             </p>
-            <p className="text-white-50 small mb-0">
+            <p>
               Teléfono: <span className="text-light">+56 9 1234 5678</span>
             </p>
           </div>

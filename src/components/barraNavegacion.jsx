@@ -2,9 +2,9 @@ import { NavLink } from 'react-router-dom'
 
 function Navbar() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-lg navbar-dark" style={{ backgroundColor: '#5d4037' }}>
     <div className="container-fluid">
-        <NavLink className="navbar-brand" to="/">AnimeWord</NavLink>
+        <NavLink className="navbar-brand" to="/">˶ˆ꒳ˆ˵ AnimeWord</NavLink>
         <button 
             className="navbar-toggler" 
             type="button" 

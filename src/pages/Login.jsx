@@ -72,18 +72,18 @@ function Login() {
                     
                     <h3 className="text-white fw-bold mb-4">AnimeWord</h3> {/* Nombre de tu empresa */}
 
-                    {/* Tarjeta del formulario */}
-                    <div className="card text-light shadow-lg border-secondary text-start" style={{ backgroundColor: '#2a1b3d' }}>
+                    {/* Tarjeta del formulario (se quitó text-light) */}
+                    <div className="card shadow-lg border-secondary text-start" style={{ backgroundColor: '#fce4ec' }}>
                         
-                        {/* Cabecera interna del recuadro de sesión */}
-                        <div className="card-header bg-dark text-white fw-bold border-secondary py-2">
+                        {/* Cabecera interna del recuadro de sesión (cambiada a color café para combinar) */}
+                        <div className="card-header text-white fw-bold border-secondary py-2 text-uppercase" style={{ backgroundColor: '#5d4037' }}>
                             inicio de sesión
                         </div>
 
                         <div className="card-body p-4">
                             {mensajeExito && (
                                 <div className="alert alert-success text-center" role="alert">
-                                    ¡Inicio de sesión exitoso! Redirigindo...
+                                    ¡Inicio de sesión exitoso! Redirigiendo...
                                 </div>
                             )}
 
@@ -91,36 +91,38 @@ function Login() {
                                 
                                 {/* Campo Correo */}
                                 <div className="mb-3">
-                                    <label className="form-label text-white-50 text-uppercase small fw-bold">Correo</label>
+                                    <label className="form-label text-uppercase small fw-bold" style={{ color: '#5d4037' }}>Correo</label>
                                     <input 
                                         type="email" 
                                         name="correo"
                                         value={formData.correo}
                                         onChange={handleChange}
-                                        className={`form-control bg-dark text-light border-secondary ${errors.correo ? 'is-invalid' : ''}`}
+                                        className={`form-control border-secondary ${errors.correo ? 'is-invalid' : ''}`}
                                         placeholder="ejemplo@duoc.cl"
                                     />
                                     {errors.correo && <div className="invalid-feedback">{errors.correo}</div>}
                                 </div>
+
                                 {/* Campo Contraseña */}
                                 <div className="mb-4">
-                                    <label className="form-label text-white-50 text-uppercase small fw-bold">Contraseña</label>
+                                    <label className="form-label text-uppercase small fw-bold" style={{ color: '#5d4037' }}>Contraseña</label>
                                     <input 
                                         type="password" 
                                         name="password"
                                         value={formData.password}
                                         onChange={handleChange}
-                                        className={`form-control bg-dark text-light border-secondary ${errors.password ? 'is-invalid' : ''}`}
+                                        className={`form-control border-secondary ${errors.password ? 'is-invalid' : ''}`}
                                         placeholder="4 a 10 caracteres"
                                     />
                                     {errors.password && <div className="invalid-feedback">{errors.password}</div>}
                                 </div>
+
                                 {/* Botón Iniciar Sesión */}
                                 <div className="d-flex justify-content-center">
                                     <button 
                                         type="submit" 
                                         className="btn text-white fw-bold px-5 py-2 w-50" 
-                                        style={{ backgroundColor: '#1a1025', border: '1px solid #4a3363' }}
+                                        style={{ backgroundColor: '#5d4037', border: '1px solid #fce4ec' }}
                                     >
                                         Iniciar sesión
                                     </button>

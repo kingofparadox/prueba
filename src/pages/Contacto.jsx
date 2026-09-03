@@ -71,10 +71,10 @@ function Contacto() {
                     <h3 className="text-white fw-bold mb-4">AnimeWord</h3>
 
                     {/* Tarjeta del formulario con la misma estética del login */}
-                    <div className="card text-light shadow-lg border-secondary text-start" style={{ backgroundColor: '#2a1b3d' }}>
+                    <div className="card shadow-lg border-secondary text-start" style={{ backgroundColor: '#fce4ec' }}>
                         
-                        {/* Cabecera del formulario */}
-                        <div className="card-header bg-dark text-white fw-bold border-secondary py-2 text-uppercase small text-center">
+                        {/* Cabecera del formulario en color café */}
+                        <div className="card-header text-white fw-bold border-secondary py-2 text-uppercase small text-center" style={{ backgroundColor: '#5d4037' }}>
                             Formulario de Contactos
                         </div>
 
@@ -89,13 +89,13 @@ function Contacto() {
                                 
                                 {/* Campo Nombre Completo */}
                                 <div className="mb-3">
-                                    <label className="form-label text-white-50 text-uppercase small fw-bold">Nombre Completo</label>
+                                    <label className="form-label text-uppercase small fw-bold" style={{ color: '#5d4037' }}>Nombre Completo</label>
                                     <input 
                                         type="text" 
                                         name="nombreCompleto"
                                         value={formData.nombreCompleto}
                                         onChange={handleChange}
-                                        className={`form-control bg-dark text-light border-secondary ${errors.nombreCompleto ? 'is-invalid' : ''}`}
+                                        className={`form-control border-secondary ${errors.nombreCompleto ? 'is-invalid' : ''}`}
                                         placeholder="Ingresa tu nombre"
                                     />
                                     {errors.nombreCompleto && <div className="invalid-feedback">{errors.nombreCompleto}</div>}
@@ -103,13 +103,13 @@ function Contacto() {
 
                                 {/* Campo Correo */}
                                 <div className="mb-3">
-                                    <label className="form-label text-white-50 text-uppercase small fw-bold">Correo</label>
+                                    <label className="form-label text-uppercase small fw-bold" style={{ color: '#5d4037' }}>Correo</label>
                                     <input 
                                         type="email" 
                                         name="correo"
                                         value={formData.correo}
                                         onChange={handleChange}
-                                        className={`form-control bg-dark text-light border-secondary ${errors.correo ? 'is-invalid' : ''}`}
+                                        className={`form-control border-secondary ${errors.correo ? 'is-invalid' : ''}`}
                                         placeholder="ejemplo@duoc.cl o @gmail.com"
                                     />
                                     {errors.correo && <div className="invalid-feedback">{errors.correo}</div>}
@@ -117,13 +117,13 @@ function Contacto() {
 
                                 {/* Campo Contenido / Mensaje */}
                                 <div className="mb-4">
-                                    <label className="form-label text-white-50 text-uppercase small fw-bold">Contenido</label>
+                                    <label className="form-label text-uppercase small fw-bold" style={{ color: '#5d4037' }}>Contenido</label>
                                     <textarea 
                                         name="contenido"
                                         rows="3"
                                         value={formData.contenido}
                                         onChange={handleChange}
-                                        className={`form-control bg-dark text-light border-secondary ${errors.contenido ? 'is-invalid' : ''}`}
+                                        className={`form-control border-secondary ${errors.contenido ? 'is-invalid' : ''}`}
                                         placeholder="Escribe tu mensaje aquí..."
                                     ></textarea>
                                     {errors.contenido && <div className="invalid-feedback">{errors.contenido}</div>}
@@ -134,7 +134,7 @@ function Contacto() {
                                     <button 
                                         type="submit" 
                                         className="btn text-white fw-bold px-5 py-2 w-50" 
-                                        style={{ backgroundColor: '#1a1025', border: '1px solid #4a3363' }}
+                                        style={{ backgroundColor: '#5d4037', border: '1px solid #fce4ec' }}
                                     >
                                         Enviar Mensaje
                                     </button>

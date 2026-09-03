@@ -86,8 +86,8 @@ function Registro() {
         <div className="container py-5">
             <div className="row justify-content-center">
                 <div className="col-12 col-md-8 col-lg-6">
-                    <div className="card text-light shadow-lg border-secondary p-4" style={{ backgroundColor: '#2a1b3d' }}>
-                        <h2 className="text-center fw-bold text-white mb-4">Registro de Usuario</h2>
+                    <div className="card shadow-lg border-secondary p-4" style={{ backgroundColor: '#fce4ec' }}>
+                        <h2 className="text-center fw-bold mb-4" style={{ color: '#5d4037' }}>Registro de Usuario</h2>
 
                         {mensajeExito && (
                             <div className="alert alert-success text-center" role="alert">
@@ -98,13 +98,13 @@ function Registro() {
                             
                             {/* Campo Nombre */}
                             <div className="mb-3">
-                                <label className="form-label text-white-50">Nombre</label>
+                                <label className="form-label fw-bold" style={{ color: '#5d4037' }}>Nombre</label>
                                 <input 
                                     type="text" 
                                     name="nombre"
                                     value={formData.nombre}
                                     onChange={handleChange}
-                                    className={`form-control bg-dark text-light border-secondary ${errors.nombre ? 'is-invalid' : ''}`}
+                                    className={`form-control border-secondary ${errors.nombre ? 'is-invalid' : ''}`}
                                     placeholder="Ingresa tu nombre (máx 100 caracteres)"
                                 />
                                 {errors.nombre && <div className="invalid-feedback">{errors.nombre}</div>}
@@ -112,13 +112,13 @@ function Registro() {
 
                             {/* Campo Correo */}
                             <div className="mb-3">
-                                <label className="form-label text-white-50">Correo Electrónico</label>
+                                <label className="form-label fw-bold" style={{ color: '#5d4037' }}>Correo Electrónico</label>
                                 <input 
                                     type="email" 
                                     name="correo"
                                     value={formData.correo}
                                     onChange={handleChange}
-                                    className={`form-control bg-dark text-light border-secondary ${errors.correo ? 'is-invalid' : ''}`}
+                                    className={`form-control border-secondary ${errors.correo ? 'is-invalid' : ''}`}
                                     placeholder="usuario@duoc.cl o @gmail.com"
                                 />
                                 {errors.correo && <div className="invalid-feedback">{errors.correo}</div>}
@@ -126,13 +126,13 @@ function Registro() {
 
                             {/* Campo Confirmar Correo */}
                             <div className="mb-3">
-                                <label className="form-label text-white-50">Confirmar Correo Electrónico</label>
+                                <label className="form-label fw-bold" style={{ color: '#5d4037' }}>Confirmar Correo Electrónico</label>
                                 <input 
                                     type="email" 
                                     name="confirmarCorreo"
                                     value={formData.confirmarCorreo}
                                     onChange={handleChange}
-                                    className={`form-control bg-dark text-light border-secondary ${errors.confirmarCorreo ? 'is-invalid' : ''}`}
+                                    className={`form-control border-secondary ${errors.confirmarCorreo ? 'is-invalid' : ''}`}
                                     placeholder="Repite tu correo"
                                 />
                                 {errors.confirmarCorreo && <div className="invalid-feedback">{errors.confirmarCorreo}</div>}
@@ -140,13 +140,13 @@ function Registro() {
 
                             {/* Campo Contraseña */}
                             <div className="mb-3">
-                                <label className="form-label text-white-50">Contraseña (4 a 10 caracteres)</label>
+                                <label className="form-label fw-bold" style={{ color: '#5d4037' }}>Contraseña (4 a 10 caracteres)</label>
                                 <input 
                                     type="password" 
                                     name="password"
                                     value={formData.password}
                                     onChange={handleChange}
-                                    className={`form-control bg-dark text-light border-secondary ${errors.password ? 'is-invalid' : ''}`}
+                                    className={`form-control border-secondary ${errors.password ? 'is-invalid' : ''}`}
                                     placeholder="********"
                                 />
                                 {errors.password && <div className="invalid-feedback">{errors.password}</div>}
@@ -154,13 +154,13 @@ function Registro() {
 
                             {/* Campo Confirmar Contraseña */}
                             <div className="mb-4">
-                                <label className="form-label text-white-50">Confirmar Contraseña</label>
+                                <label className="form-label fw-bold" style={{ color: '#5d4037' }}>Confirmar Contraseña</label>
                                 <input 
                                     type="password" 
                                     name="confirmarPassword"
                                     value={formData.confirmarPassword}
                                     onChange={handleChange}
-                                    className={`form-control bg-dark text-light border-secondary ${errors.confirmarPassword ? 'is-invalid' : ''}`}
+                                    className={`form-control border-secondary ${errors.confirmarPassword ? 'is-invalid' : ''}`}
                                     placeholder="Repite tu contraseña"
                                 />
                                 {errors.confirmarPassword && <div className="invalid-feedback">{errors.confirmarPassword}</div>}
@@ -170,7 +170,7 @@ function Registro() {
                             <button 
                                 type="submit" 
                                 className="btn w-100 text-white fw-bold py-2" 
-                                style={{ backgroundColor: '#1a1025', border: '1px solid #4a3363' }}
+                                style={{ backgroundColor: '#5d4037', border: '1px solid #fce4ec' }}
                             >
                                 Registrar
                             </button>

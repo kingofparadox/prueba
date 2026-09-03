@@ -36,7 +36,7 @@ function App() {
           <Route path= "/Contacto" element ={<Contacto/>}/>
           <Route path="*" element={<Index />} />
         </Routes>
-        <h2>lo que se te de la gana</h2>
+        
       </main>
       <Footer />
     </div>
