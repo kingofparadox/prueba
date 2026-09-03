@@ -1,35 +1,36 @@
-import { useState } from 'react'
 import Card from '../components/cartas'
+import { Link } from 'react-router-dom'
 
-function productos() {
-  // Estado para almacenar los productos elegidos
-  const [carrito, setCarrito] = useState([])
-
-  // Lista de ejemplo (puedes adaptarla a tus datos)
+function producto({ onAgregarAlCarro, carrito }) {
   const listaProductos = [
-    { id: 1, nombre: 'Figura Goku SSJ', descripcion: 'Edición coleccionista limitada.', precio: 34990, imagen: '/ruta-imagen.jpg' },
-    { id: 2, nombre: 'Manga Chainsaw Man Vol. 1', descripcion: 'Tomo impreso oficial.', precio: 9990, imagen: '/ruta-imagen2.jpg' }
+    { id: 1, nombre: 'Figura Goku SSJ', descripcion: 'Edición coleccionista limitada.', precio: 34990, imagen: 'https://via.placeholder.com/150' },
+    { id: 2, nombre: 'Manga Chainsaw Man Vol. 1', descripcion: 'Tomo impreso oficial.', precio: 9990, imagen: 'https://via.placeholder.com/150' },
+    { id: 3, nombre: 'Figura Nezuko Kamado', descripcion: 'Versión demonio a escala.', precio: 42990, imagen: 'https://via.placeholder.com/150' }
   ]
-
-  // Función que recibe el producto clickeado y lo añade al carrito
-  const agregarAlCarro = (productoSeleccionado) => {
-    setCarrito([...carrito, productoSeleccionado])
-    console.log('Producto agregado al carrito:', productoSeleccionado.id)
-  }
 
   return (
     <div className="container py-5">
-      <h2 className="text-white fw-bold mb-4">Catálogo de Productos</h2>
-      
-      {/* Indicador rápido del carrito */}
-      <div className="mb-4 text-white-50">
-        🛒 Productos en el carrito: <span className="badge bg-light text-dark">{carrito.length}</span>
+      <div className="d-flex justify-content-between align-items-center mb-4">
+        <div>
+          <h1>Catálogo de Productos</h1>
+          <p>Explora y añade tus coleccionables favoritos.</p>
+        </div>
+
+        <Link to="/carrito" className="btn btn-light fw-bold position-relative shadow-sm">
+          🛒 Ver Carrito
+          {carrito.length > 0 && (
+            <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              {carrito.length}
+            </span>
+          )}
+        </Link>
       </div>
 
-      {/* Le pasamos la función como prop al componente Card */}
-      <Card productos={listaProductos} onAgregarAlCarro={agregarAlCarro} />
+      <hr className="border-secondary mb-4" />
+
+      <Card productos={listaProductos} onAgregarAlCarro={onAgregarAlCarro} />
     </div>
   )
 }
 
-export default productos
+export default producto

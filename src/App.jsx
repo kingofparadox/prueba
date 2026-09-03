@@ -10,10 +10,22 @@ import Registro from './pages/Registro.jsx'
 import Login from './pages/Login.jsx'
 import Contacto from './pages/Contacto.jsx'
 import Blog from './pages/Blog.jsx'
+import Carrito from './pages/Carrito.jsx'
+import { useState } from 'react'
 import './index.css'
- 
 
 function App() {
+  const [carrito, setCarrito] = useState([])
+
+  // Función para agregar productos al carrito global
+  const agregarAlCarro = (producto) => {
+    setCarrito([...carrito, producto])
+  }
+
+  // Función para eliminar productos del carrito global
+  const eliminarDelCarro = (indexParaBorrar) => {
+    setCarrito(carrito.filter((_, index) => index !== indexParaBorrar))
+  }
   const estatusGeneral = {
     backgroundColor: '#ffffffff',
     color: '#ffffffff',
@@ -29,7 +41,9 @@ function App() {
         <Routes>
           <Route index element={<Index />} />
           <Route path="/nosotros" element={<Nosotros/>} />
-          <Route path="/Ventas" element={<Ventas />} />
+          <Route path="/Ventas" element={<Ventas onAgregarAlCarro={agregarAlCarro} carrito={carrito} />} />
+          <Route path="/Carrito" element={<Carrito carrito={carrito} onEliminarDelCarro={eliminarDelCarro} />} />
+          <Route path="/Registro" element={<Registro />} />
           <Route path="/Registro" element={<Registro />} />
           <Route path= "/Login" element={<Login/>}/>
           <Route path= "/Blog" element = {<Blog/>}/>
