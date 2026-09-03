@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 
 function producto({ onAgregarAlCarro, carrito }) {
   const listaProductos = [
-    { id: 1, nombre: 'Figura Goku SSJ', descripcion: 'Edición coleccionista limitada.', precio: 34990, imagen: 'https://via.placeholder.com/150' },
-    { id: 2, nombre: 'Manga Chainsaw Man Vol. 1', descripcion: 'Tomo impreso oficial.', precio: 9990, imagen: 'https://via.placeholder.com/150' },
-    { id: 3, nombre: 'Figura Nezuko Kamado', descripcion: 'Versión demonio a escala.', precio: 42990, imagen: 'https://via.placeholder.com/150' }
+    { id: 1, nombre: 'Producto A', precio: 1000, imagen: '/img/miku.jpg', descripcion: 'Descripción A' },
+    { id: 2, nombre: 'Producto B', precio: 2000, imagen: '/img/miku.jpg', descripcion: 'Descripción B' },
+    { id: 3, nombre: 'Producto C', precio: 3000, imagen: '/img/pelorosangelbeats.jpg', descripcion: 'Descripción C' },
   ]
 
   return (
