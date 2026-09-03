@@ -20,3 +20,11 @@ body{
 p{
   color: black
 }
+* {
+  font-family: 'Bebas Neue', sans-serif !important;
+}
+
+body, input, button, select, textarea, p, h1, h2, h3, h4, h5, h6, a, span {
+  font-family: 'Bebas Neue', sans-serif !important;
+  letter-spacing: 0.5px; /* Mejora la legibilidad en textos largos */
+}
