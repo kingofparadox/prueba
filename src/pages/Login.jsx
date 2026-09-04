@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import { useNavigate, Link } from 'react-router-dom' // <--- 1. Importamos Link
+import { useNavigate, Link } from 'react-router-dom'
 
-function Login() {
+function Login({ onLogin }) {
     const navigate = useNavigate()
     const [formData, setFormData] = useState({
         correo: '',
@@ -44,10 +44,21 @@ function Login() {
 
         if (Object.keys(nuevosErrores).length === 0) {
             setMensajeExito(true)
-            console.log('Datos de inicio de sesión válidos:', formData)
+            
+            // Evaluamos si es admin según el dominio (ejemplo con @profesor.duoc.cl)
+            const esAdmin = formData.correo.endsWith('@profesor.duoc.cl')
+            
+            // Lanzamos el true o false hacia App.jsx
+            if (onLogin) {
+                onLogin(esAdmin)
+            }
             
             setTimeout(() => {
-                navigate('/')
+                if (esAdmin) {
+                    navigate('/admin/home')
+                } else {
+                    navigate('/')
+                }
             }, 1500)
         } else {
             setMensajeExito(false)
@@ -118,7 +129,6 @@ function Login() {
                                     </button>
                                 </div>
 
-                                {/* 2. Sección inferior para invitar al registro */}
                                 <div className="text-center mt-4 border-top pt-3 border-secondary-subtle">
                                     <p className="small mb-1 text-muted">¿No tienes una cuenta todavía?</p>
                                     <Link to="/Registro" className="fw-bold text-decoration-none" style={{ color: '#5d4037' }}>

@@ -6,6 +6,10 @@ function producto({ onAgregarAlCarro, carrito }) {
     { id: 1, nombre: 'Producto A', precio: 1000, imagen: '/img/miku.jpg', descripcion: 'Descripción A' },
     { id: 2, nombre: 'Producto B', precio: 2000, imagen: '/img/miku.jpg', descripcion: 'Descripción B' },
     { id: 3, nombre: 'Producto C', precio: 3000, imagen: '/img/pelorosangelbeats.jpg', descripcion: 'Descripción C' },
+    { id: 4, nombre: 'Fluttershy', precio: 20000, imagen: '/img/fluttershy.jpg', descripcion: 'My little pony Fluttershy' },
+    { id: 5, nombre: 'Kanade Tachibana', precio: 20000, imagen: '/img/angel_beats.png', descripcion: 'Angel Beats Kanade Tachibana' },
+    { id: 6, nombre: 'Yuno Gasai', precio: 30000, imagen: '/img/yunogasai1.png', descripcion: 'Mirai Nikki Yuno Gasai' },
+    
   ]
 
   return (
