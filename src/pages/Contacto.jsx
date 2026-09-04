@@ -63,12 +63,15 @@ function Contacto() {
                     
                     {/* Logotipo superior acorde al mockup */}
                     <div className="mb-3 d-flex justify-content-center">
-                        <div className="border border-secondary d-flex align-items-center justify-content-center bg-dark text-white-50" style={{ width: '80px', height: '80px' }}>
-                            LOGO
-                        </div>
+                       <img 
+                            src="/img/logoPAGINA.jpg" /* <--- ¡RUTA DE TU IMAGEN! */
+                            alt="Logo AnimeWord"
+                            className="rounded-circle shadow-sm"
+                            style={{ width: '90px', height: '90px', objectFit: 'cover' }}
+                        />
                     </div>
                     
-                    <h3 className="text-white fw-bold mb-4">AnimeWord</h3>
+                    <h3 className="text-dark fw-bold mb-4">AnimeWord</h3>
 
                     {/* Tarjeta del formulario con la misma estética del login */}
                     <div className="card shadow-lg border-secondary text-start" style={{ backgroundColor: '#fce4ec' }}>
