@@ -2,9 +2,21 @@ import { NavLink } from 'react-router-dom'
 
 function Navbar() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark" style={{ backgroundColor: '#5d4037' }}>
+    <nav className="navbar navbar-expand-lg navbar-light" style={{ backgroundColor: '#fce4ec' }}>
     <div className="container-fluid">
-        <NavLink className="navbar-brand" to="/">˶ˆ꒳ˆ˵ AnimeWord</NavLink>
+        
+        {/* AQUÍ ESTÁ EL LOGO INTEGRADO CON TU TEXTO */}
+        <NavLink className="navbar-brand d-flex align-items-center text-dark fw-bold" to="/">
+            <img 
+                src="/img/logoPAGINA.jpg" /* <--- ¡CAMBIA ESTO POR EL NOMBRE DE TU IMAGEN! */
+                alt="Logo" 
+                width="40" 
+                height="40" 
+                className="d-inline-block align-text-top me-2 rounded-circle" 
+            />
+             AnimeWord
+        </NavLink>
+
         <button 
             className="navbar-toggler" 
             type="button" 
@@ -20,7 +32,7 @@ function Navbar() {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
                     <NavLink 
-                        className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'} 
+                        className={({ isActive }) => isActive ? 'nav-link active text-dark fw-bold' : 'nav-link text-dark'} 
                         aria-current="page" 
                         to="/"
                     >
@@ -30,7 +42,7 @@ function Navbar() {
                 
                 <li className="nav-item">
                     <NavLink 
-                        className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'} 
+                        className={({ isActive }) => isActive ? 'nav-link active text-dark fw-bold' : 'nav-link text-dark'} 
                         to="/nosotros"
                     >
                         Nosotros
@@ -39,7 +51,7 @@ function Navbar() {
 
                 <li className="nav-item">
                     <NavLink 
-                        className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'} 
+                        className={({ isActive }) => isActive ? 'nav-link active text-dark fw-bold' : 'nav-link text-dark'} 
                         to="/Ventas"
                     >
                         Productos
@@ -48,7 +60,7 @@ function Navbar() {
                 
                 <li className="nav-item">
                     <NavLink 
-                        className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'} 
+                        className={({ isActive }) => isActive ? 'nav-link active text-dark fw-bold' : 'nav-link text-dark'} 
                         to="/Login"
                     >
                         Login
@@ -56,7 +68,7 @@ function Navbar() {
                 </li>
                 <li className="nav-item">
                     <NavLink 
-                        className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'} 
+                        className={({ isActive }) => isActive ? 'nav-link active text-dark fw-bold' : 'nav-link text-dark'} 
                         to="/Contacto"
                     >
                         Contactanos
@@ -64,7 +76,7 @@ function Navbar() {
                 </li>
                 <li className="nav-item">
                     <NavLink 
-                        className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'} 
+                        className={({ isActive }) => isActive ? 'nav-link active text-dark fw-bold' : 'nav-link text-dark'} 
                         to="/Blog"
                     >
                         Blog
@@ -73,7 +85,8 @@ function Navbar() {
             </ul>
         </div>
     </div>
-    </nav>)
+    </nav>
+  )
 }
 
 export default Navbar

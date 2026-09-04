@@ -20,7 +20,12 @@ function Nosotros() {
                         {/* Imagen destacada simulada */}
                         <div className="p-5 rounded-3 text-center border border-secondary mb-4" 
                              style={{ backgroundColor: '#fce4ec', minHeight: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                            <span className="text-white-50 fst-italic">[ Imagen: Evolución de Figuras y Mangas ]</span>
+                            <img 
+                src="/img/mikuparaponerahi.jpg" /* <--- ¡CAMBIA ESTO POR LA RUTA DE TU IMAGEN! */
+                alt="Banner principal"
+                className="img-fluid rounded-3 shadow-sm"
+                style={{ maxHeight: '250px', objectFit: 'cover' }}
+              />
                         </div>
 
                         {/* Cuerpo de la historia inspiradora */}
