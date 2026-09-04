@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 
@@ -15,6 +15,8 @@ import Blog from './pages/Blog.jsx'
 import Contacto from './pages/Contacto.jsx'
 import Carrito from './pages/Carrito.jsx'
 import AdminHome from './pages/AdminHome.jsx'
+import AdminUser from './pages/AdminUser.jsx'
+
 import './index.css'
 
 function MainLayout({ carrito, agregarAlCarro, eliminarDelCarro, isAdmin, setIsAdmin }) {
@@ -35,7 +37,12 @@ function MainLayout({ carrito, agregarAlCarro, eliminarDelCarro, isAdmin, setIsA
 
       <main className="container pt-4" style={{ flexGrow: 1 }}>
         <Routes>
-          <Route index element={<Index />} />
+          {/* Rutas de Administrador primero para evitar que choquen con otras */}
+          <Route path="/admin" element={<AdminHome />} />
+          <Route path="/admin/usuarios" element={<AdminUser />} />
+
+          {/* Rutas generales */}
+          <Route path="/" element={<Index />} />
           <Route path="/nosotros" element={<Nosotros />} />
           <Route path="/Ventas" element={<Ventas onAgregarAlCarro={agregarAlCarro} carrito={carrito} />} />
           <Route path="/Carrito" element={<Carrito carrito={carrito} onEliminarDelCarro={eliminarDelCarro} />} />
@@ -43,7 +50,6 @@ function MainLayout({ carrito, agregarAlCarro, eliminarDelCarro, isAdmin, setIsA
           <Route path="/Login" element={<Login onLogin={(estado) => setIsAdmin(estado)} />} />
           <Route path="/Blog" element={<Blog />} />
           <Route path="/Contacto" element={<Contacto />} />
-          <Route path="/admin/home" element={<AdminHome />} />
           <Route path="*" element={<Index />} />
         </Routes>
       </main>
@@ -65,13 +71,15 @@ function App() {
   }
 
   return (
-    <MainLayout 
-      carrito={carrito} 
-      agregarAlCarro={agregarAlCarro} 
-      eliminarDelCarro={eliminarDelCarro}
-      isAdmin={isAdmin}
-      setIsAdmin={setIsAdmin}
-    />
+
+      <MainLayout 
+        carrito={carrito} 
+        agregarAlCarro={agregarAlCarro} 
+        eliminarDelCarro={eliminarDelCarro}
+        isAdmin={isAdmin}
+        setIsAdmin={setIsAdmin}
+      />
+
   )
 }
 

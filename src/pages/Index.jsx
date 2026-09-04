@@ -5,7 +5,7 @@ import Hero from '../components/Hero.jsx'
 function Index() {
     const navigate = useNavigate()
     const productos = [
-      { id: 1, nombre: 'Fluttershy', precio: 20000, imagen: '/img/fluttershy.jpg', descripcion: 'My little pony Fluttershy' },
+      { id: 1, nombre: 'Fluttershy', precio: 20000, imagen: '/img/fluttershy1.jpg', descripcion: 'My little pony Fluttershy' },
       { id: 2, nombre: 'Kanade Tachibana', precio: 20000, imagen: '/img/angel_beats.png', descripcion: 'Angel Beats Kanade Tachibana' },
       { id: 3, nombre: 'Yuno Gasai', precio: 30000, imagen: '/img/yunogasai1.png', descripcion: 'Mirai Nikki Yuno Gasai' },
     ]

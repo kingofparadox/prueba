@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
+// Importamos tu archivo JSON con los usuarios registrados
+import usuariosJson from '../Data/user.json'
 
 function Login({ onLogin }) {
     const navigate = useNavigate()
@@ -22,45 +24,46 @@ function Login({ onLogin }) {
         e.preventDefault()
         let nuevosErrores = {}
 
+        // Validaciones básicas de campos vacíos
         if (!formData.correo.trim()) {
             nuevosErrores.correo = 'El correo es requerido.'
-        } else if (formData.correo.length > 100) {
-            nuevosErrores.correo = 'El correo no puede superar los 100 caracteres.'
-        } else {
-            const dominiosValidos = ['@duoc.cl', '@profesor.duoc.cl', '@gmail.com']
-            const esValido = dominiosValidos.some(dominio => formData.correo.endsWith(dominio))
-            if (!esValido) {
-                nuevosErrores.correo = 'Solo se permiten correos @duoc.cl, @profesor.duoc.cl y @gmail.com.'
-            }
         }
-
         if (!formData.password) {
             nuevosErrores.password = 'La contraseña es requerida.'
-        } else if (formData.password.length < 4 || formData.password.length > 10) {
-            nuevosErrores.password = 'La contraseña debe tener entre 4 y 10 caracteres.'
+        }
+
+        // Si los campos no están vacíos, procedemos a buscar al usuario en el JSON
+        if (Object.keys(nuevosErrores).length === 0) {
+            // Buscamos si existe un usuario que coincida exactamente con correo y contraseña
+            const usuarioEncontrado = usuariosJson.find(
+                u => u.correo.toLowerCase() === formData.correo.toLowerCase() && u.password === formData.password
+            )
+
+            if (!usuarioEncontrado) {
+                nuevosErrores.correo = 'Correo o contraseña incorrectos, o el usuario no está registrado.'
+            } else {
+                // Aquí definimos si es admin. Puedes mantener la regla del profesor o verificar si su nombre/correo indica admin
+                // Por ejemplo, si es el correo de profesor o contiene "profesor"
+                const esAdmin = usuarioEncontrado.correo.endsWith('@profesor.duoc.cl')
+
+                setMensajeExito(true)
+                
+                if (onLogin) {
+                    onLogin(esAdmin)
+                }
+                
+                setTimeout(() => {
+                    if (esAdmin) {
+                        navigate('/admin/home')
+                    } else {
+                        navigate('/')
+                    }
+                }, 1500)
+            }
         }
 
         setErrors(nuevosErrores)
-
-        if (Object.keys(nuevosErrores).length === 0) {
-            setMensajeExito(true)
-            
-            // Evaluamos si es admin según el dominio (ejemplo con @profesor.duoc.cl)
-            const esAdmin = formData.correo.endsWith('@profesor.duoc.cl')
-            
-            // Lanzamos el true o false hacia App.jsx
-            if (onLogin) {
-                onLogin(esAdmin)
-            }
-            
-            setTimeout(() => {
-                if (esAdmin) {
-                    navigate('/admin/home')
-                } else {
-                    navigate('/')
-                }
-            }, 1500)
-        } else {
+        if (Object.keys(nuevosErrores).length > 0) {
             setMensajeExito(false)
         }
     }
@@ -72,7 +75,7 @@ function Login({ onLogin }) {
                     
                     <div className="mb-3 d-flex justify-content-center">
                        <img 
-                            src="/img/logoPAGINA.jpg" /* <--- ¡RUTA DE TU IMAGEN! */
+                            src="/img/logoPAGINA.jpg"
                             alt="Logo AnimeWord"
                             className="rounded-circle shadow-sm"
                             style={{ width: '90px', height: '90px', objectFit: 'cover' }}
@@ -117,7 +120,7 @@ function Login({ onLogin }) {
                                         value={formData.password}
                                         onChange={handleChange}
                                         className={`form-control border-secondary ${errors.password ? 'is-invalid' : ''}`}
-                                        placeholder="4 a 10 caracteres"
+                                        placeholder="Tu contraseña"
                                     />
                                     {errors.password && <div className="invalid-feedback">{errors.password}</div>}
                                 </div>
