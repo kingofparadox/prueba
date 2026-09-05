@@ -54,7 +54,7 @@ function Login({ onLogin }) {
                 
                 setTimeout(() => {
                     if (esAdmin) {
-                        navigate('/admin/home')
+                        navigate('/admin')
                     } else {
                         navigate('/')
                     }

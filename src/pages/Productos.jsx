@@ -1,21 +1,12 @@
 import Card from '../components/cartas'
 import { Link } from 'react-router-dom'
+// Importamos los productos directamente desde tu carpeta Data
+import productosJson from '../Data/productos.json'
 
-function producto({ onAgregarAlCarro, carrito }) {
-  const listaProductos = [
-    { id: 1, nombre: 'Kisaragi Saya', precio: 20000, imagen: '/img/bloodc.jpg', descripcion: 'Blood c Kisaragi Saya' },
-    { id: 2, nombre: 'Kotonoha Katsura', precio: 2000, imagen: '/img/kotonoha.jpg', descripcion: 'School days Kotonoha Katsura' },
-    { id: 3, nombre: 'Junko Enoshima', precio: 3000, imagen: '/img/junko1.jpg', descripcion: 'Danganronpa Junko Enoshima' },
-    { id: 4, nombre: 'Fluttershy', precio: 20000, imagen: '/img/fluttershy1.jpg', descripcion: 'My little pony Fluttershy' },
-    { id: 5, nombre: 'Kanade Tachibana', precio: 20000, imagen: '/img/angel_beats.png', descripcion: 'Angel Beats Kanade Tachibana' },
-    { id: 6, nombre: 'Yuno Gasai', precio: 30000, imagen: '/img/yunogasai1.png', descripcion: 'Mirai Nikki Yuno Gasai' },
-    
-  ]
-
+function Productos({ onAgregarAlCarro, carrito }) {
   return (
     <div className="container py-5">
-      <div className="d-flex justify-content-between ali
-      gn-items-center mb-4">
+      <div className="d-flex justify-content-between align-items-center mb-4">
         <div>
           <h1>Catálogo de Productos</h1>
           <p>Explora y añade tus coleccionables favoritos. ꒰ঌ(˶ˆᗜˆ˵)໒꒱ .ᐟ.ᐟ</p>
@@ -37,9 +28,10 @@ function producto({ onAgregarAlCarro, carrito }) {
 
       <hr className="border-secondary mb-4" />
 
-      <Card productos={listaProductos} onAgregarAlCarro={onAgregarAlCarro} />
+      {/* Le pasamos los datos importados del JSON al componente Card */}
+      <Card productos={productosJson} onAgregarAlCarro={onAgregarAlCarro} />
     </div>
   )
 }
 
-export default producto
+export default Productos

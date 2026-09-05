@@ -1,22 +1,24 @@
 import { useNavigate } from 'react-router-dom'
 import Card from '../components/cartas.jsx'
 import Hero from '../components/Hero.jsx'
+// Importamos el JSON centralizado de productos
+import productosJson from '../Data/productos.json'
 
-function Index() {
+function Index({ onAgregarAlCarro }) {
     const navigate = useNavigate()
-    const productos = [
-      { id: 1, nombre: 'Fluttershy', precio: 20000, imagen: '/img/fluttershy1.jpg', descripcion: 'My little pony Fluttershy' },
-      { id: 2, nombre: 'Kanade Tachibana', precio: 20000, imagen: '/img/angel_beats.png', descripcion: 'Angel Beats Kanade Tachibana' },
-      { id: 3, nombre: 'Yuno Gasai', precio: 30000, imagen: '/img/yunogasai1.png', descripcion: 'Mirai Nikki Yuno Gasai' },
-    ]
+    
+    // Si quieres mostrar solo los primeros 3 productos destacados en el Index, 
+    // puedes usar .slice(0, 3). Si quieres mostrarlos todos, borras el .slice()
+    const productosDestacados = productosJson.slice(0, 3)
     
     return(    
       <div className="container py-4">
         <Hero />
         
-        <h3>.⊹˖ᯓ★. ݁₊ Nuestros Productos</h3>
+        <h3 className="mb-4">.⊹˖ᯓ★. ݁₊ Nuestros Productos</h3>
         
-        <Card productos={productos} />
+        {/* Le pasamos los datos del JSON y la función para agregar al carro */}
+        <Card productos={productosDestacados} onAgregarAlCarro={onAgregarAlCarro} />
       </div>
     )
 }
