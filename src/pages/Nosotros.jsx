@@ -5,7 +5,7 @@ function Nosotros() {
                 <div className="col-12 col-md-10 col-lg-8">
                     
                     {/* Tarjeta principal del Blog */}
-                    <div className="card text-light shadow-lg border-secondary p-4 p-md-5" style={{ backgroundColor: '#fce4ec' }}>
+                    <div className="card text-dark shadow-lg border-secondary p-4 p-md-5" style={{ backgroundColor: '#fce4ec' }}>
                         
                         {/* Cabecera del artículo */}
                         <span className="badge bg-dark border border-secondary text-white-50 align-self-start mb-3 px-3 py-2">
@@ -21,7 +21,7 @@ function Nosotros() {
                         <div className="p-5 rounded-3 text-center border border-secondary mb-4" 
                              style={{ backgroundColor: '#fce4ec', minHeight: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                             <img 
-                src="/img/mikuparaponerahi.jpg" /* <--- ¡CAMBIA ESTO POR LA RUTA DE TU IMAGEN! */
+                src="/img/mikuparaponerahi.jpg"
                 alt="Banner principal"
                 className="img-fluid rounded-3 shadow-sm"
                 style={{ maxHeight: '250px', objectFit: 'cover' }}
@@ -29,12 +29,12 @@ function Nosotros() {
                         </div>
 
                         {/* Cuerpo de la historia inspiradora */}
-                        <div className="text-white-50 fs-6 lh-lg">
+                        <div className="text-dark-50 fs-6 lh-lg">
                             <p className="mb-4">
-                                Todo comenzó en una pequeña habitación iluminada por luces LED, rodeados de cajas y el sueño compartido de traer un pedazo de Japón directamente a nuestras vitrinas. Lo que empezó como un proyecto entre amigos coleccionistas apasionados por las figuras de alta calidad, hoy se ha convertido en <strong className="text-white">AnimeWord</strong>, un refugio para todos los que vivimos y sentimos esta cultura.
+                                Todo comenzó en una pequeña habitación iluminada por luces LED, rodeados de cajas y el sueño compartido de traer un pedazo de Japón directamente a nuestras vitrinas. Lo que empezó como un proyecto entre amigos coleccionistas apasionados por las figuras de alta calidad, hoy se ha convertido en AnimeWord un refugio para todos los que vivimos y sentimos esta cultura.
                             </p>
                             
-                            <h4 className="text-white fw-bold mt-4 mb-3">¿Por qué dar el salto hacia los mangas?</h4>
+                            <h4 >¿Por qué dar el salto hacia los mangas?</h4>
                             <p className="mb-4">
                                 Una figura estática captura el momento cumbre de una pelea, la emoción de una despedida o la sonrisa de un protagonista. Sin embargo, nos dimos cuenta de que faltaba algo: el origen de todo. Queremos que experimentes la narrativa completa, desde la primera página en blanco y negro trazada por el mangaka hasta el volumen impreso que descansa en tu mesa de noche.
                             </p>
@@ -54,7 +54,7 @@ function Nosotros() {
 
                         {/* Pie de artículo / Volver */}
                         <div className="mt-5 pt-3 border-top border-secondary text-center">
-                            <a href="/home" className="btn btn-outline-light btn-sm px-4">
+                            <a href="/home" className="btn btn-outline-dark btn-sm px-4">
                                 ← Volver al inicio
                             </a>
                         </div>
