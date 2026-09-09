@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
-// Importamos tu archivo JSON con los usuarios registrados
 import usuariosJson from '../Data/user.json'
 
 function Login({ onLogin }) {
@@ -24,7 +23,6 @@ function Login({ onLogin }) {
         e.preventDefault()
         let nuevosErrores = {}
 
-        // Validaciones básicas de campos vacíos
         if (!formData.correo.trim()) {
             nuevosErrores.correo = 'El correo es requerido.'
         }
@@ -32,9 +30,8 @@ function Login({ onLogin }) {
             nuevosErrores.password = 'La contraseña es requerida.'
         }
 
-        // Si los campos no están vacíos, procedemos a buscar al usuario en el JSON
         if (Object.keys(nuevosErrores).length === 0) {
-            // Buscamos si existe un usuario que coincida exactamente con correo y contraseña
+
             const usuarioEncontrado = usuariosJson.find(
                 u => u.correo.toLowerCase() === formData.correo.toLowerCase() && u.password === formData.password
             )
@@ -42,8 +39,7 @@ function Login({ onLogin }) {
             if (!usuarioEncontrado) {
                 nuevosErrores.correo = 'Correo o contraseña incorrectos, o el usuario no está registrado.'
             } else {
-                // Aquí definimos si es admin. Puedes mantener la regla del profesor o verificar si su nombre/correo indica admin
-                // Por ejemplo, si es el correo de profesor o contiene "profesor"
+                
                 const esAdmin = usuarioEncontrado.correo.endsWith('@profesor.duoc.cl')
 
                 setMensajeExito(true)
@@ -74,7 +70,7 @@ function Login({ onLogin }) {
                 <div className="col-12 col-md-8 col-lg-6 text-center">
                     
                     <div className="mb-3 d-flex justify-content-center">
-                       <img 
+                        <img 
                             src="/img/logoPAGINA.jpg"
                             alt="Logo AnimeWord"
                             className="rounded-circle shadow-sm"

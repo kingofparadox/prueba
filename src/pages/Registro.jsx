@@ -23,14 +23,12 @@ function Registro() {
         e.preventDefault()
         let nuevosErrores = {}
 
-        // 1. Validación de Nombre (Requerido, máx 100 caracteres)
         if (!formData.nombre.trim()) {
             nuevosErrores.nombre = 'El nombre es requerido.'
         } else if (formData.nombre.length > 100) {
             nuevosErrores.nombre = 'El nombre no puede superar los 100 caracteres.'
         }
 
-        // 2. Validación de Correo (Requerido, máx 100 caracteres, dominios específicos)
         if (!formData.correo.trim()) {
             nuevosErrores.correo = 'El correo es requerido.'
         } else if (formData.correo.length > 100) {
@@ -43,21 +41,21 @@ function Registro() {
             }
         }
 
-        // 2.1 Validación de Confirmar Correo
+
         if (!formData.confirmarCorreo.trim()) {
             nuevosErrores.confirmarCorreo = 'Debe confirmar el correo electrónico.'
         } else if (formData.correo !== formData.confirmarCorreo) {
             nuevosErrores.confirmarCorreo = 'Los correos electrónicos no coinciden.'
         }
 
-        // 3. Validación de Contraseña (Requerida, entre 4 y 10 caracteres)
+
         if (!formData.password) {
             nuevosErrores.password = 'La contraseña es requerida.'
         } else if (formData.password.length < 4 || formData.password.length > 10) {
             nuevosErrores.password = 'La contraseña debe tener entre 4 y 10 caracteres.'
         }   
 
-        // 3.1 Validación de Confirmar Contraseña
+
         if (!formData.confirmarPassword) {
             nuevosErrores.confirmarPassword = 'Debe confirmar la contraseña.'
         } else if (formData.password !== formData.confirmarPassword) {
@@ -66,14 +64,9 @@ function Registro() {
 
         setErrors(nuevosErrores)
 
-        // Si no hay errores, se procesa el envío
         if (Object.keys(nuevosErrores).length === 0) {
             setMensajeExito(true)
 
-            // ==========================================
-            // AQUÍ SE QUITAN LOS CAMPOS DE CONFIRMACIÓN
-            // Se extraen y se crea 'datosParaEnviar' solo con lo limpio
-            // ==========================================
             const { confirmarCorreo, confirmarPassword, ...datosParaEnviar } = formData
 
             console.log('JSON resultante listo para enviar (sin confirmaciones):', datosParaEnviar)

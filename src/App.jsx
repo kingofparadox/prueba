@@ -47,8 +47,8 @@ function MainLayout({ carrito, agregarAlCarro, eliminarDelCarro, isAdmin, setIsA
       <main className="container pt-4" style={{ flexGrow: 1 }}>
         <Routes>
           {/* Rutas de Administrador */}
-          <Route path="/admin" element={<AdminHome />} />
-          <Route path="/admin/usuarios" element={<AdminUser />} />
+          <Route path="/admin" element={isAdmin?  <AdminHome />: <Navigate to="Login" remplace/>} />
+          <Route path="/admin/usuarios" element={isAdmin ? <AdminUser />: <Navigate to="/Login" replace />} />
           <Route path="/admin/productos" element={isAdmin ? <AdminProductos /> : <Navigate to="/Login" replace />} />
 
           {/* Rutas generales */}
